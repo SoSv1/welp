@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Other libraries go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    
+
+    <!-- Link to styles of your own -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+    <!-- Stuff for body goes here -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+        <div class="container-fluid">
+          <a class="navbar-brand text-success" href="#">
+            <i class="fas fa-map fa-lg mb-4"></i> <!-- Font Awesome Map Icon -->
+            CAMPUS NAV
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+              <li class="nav-item text-center">
+                <a class="nav-link active text-success" aria-current="page" href="#">
+                    <i class="fas fa-home fa-lg d-block mb-3"></i> <!-- Icon Above -->
+                    HOME
+                </a>
+
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link text-sucess" href="#">
+                    <i class="fas fa-sign-out-alt fa-lg d-block mb-3"></i> 
+                    LOGOUT
+                </a>
+               
+
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link text-succes" href="#">
+                    <i class="fas fa-cog fa-lg d-block mb-3"></i> 
+                    SETTINGS
+                </a>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Nikolas - Welcome Hero Screen-->
+      <div class="jumbotron mt-5">
+        <h1 class="display-4">Welcome!</h1>
+        <p class="lead">Make navigating around campus simple!</p>
+        <hr class="my-4">
+        <p></p>
+        <p class="lead">
+          <a class="btn btn-success btn-lg" href="#" role="button">Get Going...</a>
+        </p>
+      </div>
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" style="margin-top: auto;">
+        <p class="col-md-4 mb-0 text-muted">&copy; CAMPUSNAV</p>
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <i class="fa-brands fa-facebook me-3"></i> 
+          <i class="fa-brands fa-instagram me-3"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg>
+        </a>
+    </footer>
+
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/firebaseAPI.js"></script>
+
+</body>
+
+</html>

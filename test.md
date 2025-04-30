@@ -18,11 +18,6 @@ Example:
 - Real-time weather updates for any city.
 - Responsive design for desktop and mobile.
 - Displays temperature, humidity, and weather conditions.
-- Color palelte:  Monochromatic Sage Green Color Palette: 
-Sage Hint (#BFCFBB)
-Mint (#BFCFBB)
-Sage (#8EA58C)
-Moss (#738A6E)
 
 ---
 
@@ -63,9 +58,8 @@ project-name/
 ---
 
 ## Contributors
-- Nikolas Rose - BCIT CST Student who enjoys programming and has a passion for gaming and hiking.
-- **Nathan** - BCIT CST Student, I'm studying CST at BCIT.
-- **Berenice** - BCIT CST Student. I am excited to see what I can create!
+- **Nikolas Rose** - BCIT CST Student who enjoys programming and has a passion for gaming and hiking.
+- **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
 ---
 

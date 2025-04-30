@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Other libraries go here -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+
+  <!-- Link to styles of your own -->
+  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+  <!-- Add this container for FirebaseUI -->
+  <div id="firebaseui-auth-container"></div>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
+  <!-- Stuff for body goes here -->
+
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
+  <!-- Stuff for body goes here -->
+
+  <!-- our own navbar goes here -->
+  <nav id="navbarPlaceholder"></nav>
+
+  <!-- Nikolas - Welcome Hero Screen-->
+  <div class="jumbotron mt-3">
+    <h1 class="display-4">Welcome!</h1>
+
+
+
+<!-- Flex row to hold session indicator and form side-by-side -->
+<div class="d-flex flex-wrap justify-content-center align-items-center gap-1 mb-5">
+
+  <!-- Enhanced session status display -->
+  <div id="session-indicator-wrapper" class="d-flex flex-column align-items-start gap-2 bg-light p-3 border rounded" style="min-width: 300px;">
+    
+    <div class="d-flex align-items-center gap-2">
+      <div id="session-status-message" class="mt-2 text-info"></div>
+      <div id="session-indicator" style="width: 12px; height: 12px; border-radius: 50%;"></div>
+      <span id="session-indicator-label">Checking session...</span>
+      <button id="delete-session-btn" type="button" class="btn btn-outline-danger btn-sm ms-auto" title="Delete Session">×</button>
+    </div>
+
+  </div>
+
+  <!-- Create Session button + popup form -->
+
+  <div>
+    <button class="btn btn-sage mb-2" onclick="toggleForm()">Create Session</button>
+
+    <div id="sessionFormPopup" style="display: none;">
+      <form class="border rounded p-3 bg-light" onsubmit="event.preventDefault(); writeSessions(); toggleForm();">
+        <h5>Create a Study Session</h5>
+
+        <label for="formGroupExampleInput" class="form-label">Session Description</label>
+        <input type="text" class="form-control mb-3" id="sessionFormInput" placeholder="Describe your session" required>
+
+         <!-- Hidden input to store the selected session length -->
+         <input type="hidden" id="sessionLengthValue">
+
+        <div class="dropdown mb-3">
+          <button class="btn btn-secondary dropdown-toggle" id="lengthInput" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Length
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" id="length30" href="#" onclick="updateLength('30 minutes')">30 minutes</a></li>
+            <li><a class="dropdown-item" id="length60" href="#" onclick="updateLength('1 hour')">1 hour</a></li>
+            <li><a class="dropdown-item" id="length120" href="#" onclick="updateLength('2 hours')">2 hours</a></li>
+          </ul>
+        </div>
+
+       <!--  Disabled by default -->
+       <button type="submit" class="btn btn-success" id="submitSessionBtn" disabled>Submit Form</button>
+       <button type="button" class="btn btn-danger" onclick="toggleForm()">Cancel Form</button>
+     </form>
+   </div>
+ </div>
+
+</div>
+
+
+
+    <!-- MAPBOX -->
+    <div id='map' style='width: 90%; height: 600px;'></div>
+    <!-- MAPBOX -->
+    <div>
+      <div class="card">
+      </div>
+    </div>
+
+   
+    
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-muted">&copy; CAMPUSNAV</p>
+
+    <a href="/"
+      class="col-md-4 d-flex align-items-center justify-content-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <i class="fa-brands fa-facebook me-3"></i>
+      <i class="fa-brands fa-instagram me-3"></i>
+      <i class="fa-brands fa-linkedin"></i>
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap" />
+      </svg>
+    </a>
+  </footer>
+
+
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+
+  <!-- Link to scripts of your own -->
+  <!-- <script src="./scripts/script.js"></script> -->
+  <script src="./scripts/firebaseAPI.js"></script>
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+        /* Split-screen layout */
+        .split-screen {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left side (Campus Nav heading) */
+        .left-side {
+            flex: 1;
+            background: #128c1d; /* Blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Right side (forms) */
+        .right-side {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(223, 223, 223);
+        }
+
+        /* Form container */
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Form styles */
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-success {
+            background: #128c1d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-success:hover {
+            background: #154517;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Icon styles */
+        .left-side i {
+            margin-right: 15px; /* Space between icon and text */
+        }
+        @media (max-width: 768px) {
+            .split-screen {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            .left-side {
+                font-size: 2rem;
+                padding: 15px;
+                min-height: 150px;
+            }
+            
+            .right-side {
+                padding: 30px 15px;
+                align-items: flex-start;
+            }
+            
+            .form-container {
+                width: 90%;
+                margin-top: -50px; /* Overlap slightly with the green section */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                background: white;
+                border-radius: 8px;
+            }
+            
+            .form-control {
+                padding: 12px;
+                font-size: 16px; /* Prevent iOS zoom */
+            }
+            
+            .btn-success {
+                padding: 12px;
+            }
+            
+            /* Make icons smaller on mobile */
+            .left-side i {
+                font-size: 1.5rem;
+                margin-right: 10px;
+            }
+        }
